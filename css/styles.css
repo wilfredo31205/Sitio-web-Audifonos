@@ -1,0 +1,766 @@
+
+:root {/* este es mi custom propiertes */
+
+    /* colores*/
+
+    --primario: #1073BA;
+
+    --secundario: #00DA55;
+
+    --gris: #383838;
+
+    --blanco: #FFFFFF;
+
+    --negro: #1F1E1E;
+
+    --grisClaro: #e1e1e1;
+
+    --separacion: 5rem;
+
+
+
+    --fuentePrincipal: 'Roboto', sans-serif; /* y esta es mi variable con su caracteristicas */
+
+    --fuenteSecundaria: 'Lato', sans-serif;
+
+
+}
+
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+
+  font-size: 62.5%; /* conviertiendo 1 rem en 10 pixeles*/
+
+
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+  
+    font-family: var(--fuentePrincipal); /* utilizando la variable del custom propierte se utiliza con var */
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+/* GLBOALES */
+
+
+.contenedor{
+
+    max-width:120rem; /* con max-width le decimos que no pase de los 1200 pixeles*/
+
+    width: 90%; /* pero este width va a decir que voy a tomar el 90 % de lo que hay disponible */
+
+    margin: 0 auto; /* alineando el contenedor al centro */
+
+}
+
+h1,h2,h3{
+
+    font-weight: 900px;
+    font-family: var(--fuenteSecundaria);
+
+    margin: calc(var(--separacion) / 2 ) 0; /*con calc hacemos la operacion para que lo que esta en la variable
+    
+        de separacion lo divida entre 2  , por lo que le da 2.5 rem arriba y 2.5 rem abajo
+    */
+
+}
+
+
+h1{
+    font-size: 4.4rem;
+
+}
+
+h2{
+
+    font-size: 3.6rem;
+}
+
+h3{
+
+    font-size: 2.8rem;
+
+}
+
+img{ /* para tener imagenes responsivas */
+
+    max-width:100%;
+    display:block; 
+    height: auto;
+    
+
+}
+
+/*Degradados*/
+
+
+.degradado-verde{
+
+    background: linear-gradient(to right, var(--primario) 0%, var(--secundario) 100%); /* linear-gradient nos permite crear un degradado
+    
+    to right: direccion del degradado , en este caso es es izq. a drecha
+    var(--primario) : variable de color .. 0% especificando que va a arrancar desde la t o espeficiando desde
+    que parte van a arrancar los colores  , y el segundo valor es donde va a terminar el degradado 
+    en este caso le pusimos el color de la variable que estan contenido en secundario 
+
+    y le especificamos que finalize en el 100% 
+
+    
+    */
+
+    background-clip:text; /* va a decir a que parte de este elemento queremos agregarle ese background en este caso es al texto */
+    
+    color: transparent; /* dandole un color transparente para que aplique el degradado*/
+
+    -webkit-background-clip: text; /* para darle el background linear-gradient , crhome solo lo soporte colocandole
+    
+        el prefijo -webkit-background-clip
+    */
+
+
+}
+
+
+
+
+
+
+
+/*Utilidades */
+
+.text-center{ /* para centrar los textos*/
+
+    text-align: center;
+
+}
+
+/* HEADER*/
+
+.header{
+    
+    background-color:var(--negro) ;
+
+    color: var(--blanco);
+
+    padding:calc( var(--separacion) * 3)0;
+
+
+}
+
+
+@media (min-width:768px){
+
+.contenido-header{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+}
+.texto-header {
+
+    text-align: center; /* centrando el texto */
+    padding-top:  var(--separacion);
+
+}
+
+@media (min-width:768px){
+    .texto-header {
+
+        text-align: left;/* centrando el texto en un dispositivo grande a la derecha  */
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+        padding: 0;
+    
+    }
+
+ 
+    }
+
+
+    .texto-header p{
+
+        margin: 0;
+
+    }
+
+    .tagline-producto{
+
+        font-size: 3rem;
+        font-weight: 900;
+
+    }
+
+    .nombre-producto{ /* en un dispositivo pequeño */
+
+        font-size: 6rem;
+        margin: 0;
+    }
+
+    @media (min-width:768px){
+        .nombre-producto {
+    
+            font-size: 10rem;
+      
+            line-height: 1; /* dando un interlineado*/
+        }
+     
+        } 
+
+
+.precio-producto span{
+
+    font-size:6rem;
+    font-weight:900;
+
+}
+
+
+
+.header img{
+
+    width: 100%; /* tomando todo el ancho disponible*/
+}
+
+
+
+
+@media (min-width:768px){
+
+
+/* iconos */
+
+.iconos{ /* espaciado */
+
+    
+    padding: var(--separacion) 0;
+
+
+}
+
+
+.iconos{
+    display: flex;
+    gap: 2rem; /* especificandole el tamaño de las columnas */
+
+}
+ 
+} 
+
+.icono{
+    
+    text-align: center;
+    margin-bottom: calc(var(--separacion / 2) );
+
+}
+
+
+
+.icono{
+
+    /* text-align: center;
+    margin-bottom: calc(var(--separacion) / 2  ); */
+
+
+    display: flex;
+    flex-direction: column; /* cuando le cambiamos la direccion a colum , alig item funciona para  centrar el contenido*/
+   align-items: center; 
+
+
+}
+
+.icono:last-of-type{
+
+    margin: 0;
+
+}
+
+@media (min-width: 768px){
+
+
+    .icono{
+
+        margin: 0;
+
+    }
+
+
+}
+
+
+
+
+
+
+.icono img{
+
+    width: 5rem; /* 5rem = 50px */
+    margin: 0 auto; /* centrando las imagenes */
+
+
+}
+
+.icono h3{
+
+    color: var(--primario);
+    text-transform: uppercase;
+    margin-top: calc(var(--separacion) / 2);
+
+
+}
+
+/* sobre los tech pro*/
+
+
+.sobre-tech{
+
+
+    background-image: linear-gradient(to bottom, transparent 50%, var(--primario) 0%), url('../img/imagen-mujer.jpg');
+
+    background-position: right;
+
+
+    background-repeat: repeat , no-repeat; /* con repeat estamos repetiendo el color del linear gradient que le dimos arriba, pero con no-repeat estamos diciendole que no repita la imagen */
+
+    background-size: 100%, 110rem; /*100% para el color de fondo */
+
+}
+ 
+@media (min-width:768px){
+
+    .sobre-tech{
+
+        
+    background-image: linear-gradient(to left, transparent 50%, var(--primario) 0%), url('../img/audi.jpg');
+
+    background-attachment:fixed;
+    /* colocandole el color azul hacia la derecha con left */
+
+
+    background-repeat: repeat , no-repeat; 
+
+
+
+    }
+
+
+}
+
+
+@media (min-width:1600px){
+
+    .sobre-tech{
+
+    background-size: 100%, 210rem;
+
+
+
+}
+}
+
+
+.sobre-tech-grid{
+
+    display: grid;
+    grid-template-rows:repeat(2, 40rem)  ; /* creando filas para  version movil */
+
+    row-gap: var(--separacion);
+
+}
+
+@media(min-width:768px){
+
+    .sobre-tech-grid{
+
+        grid-template-rows: unset; /* para eliminar los rows que van de arriba hacia abajo*/
+
+        row-gap: unset;  /* nos permite hacer una separacion hacia abajo */
+        grid-template-columns:repeat(2, 1fr);
+
+        column-gap: 4rem; /* nos permite hacer una separacion entre columnas */
+
+        padding: calc(var(--separacion) * 2 ) 0;
+
+
+
+
+    }
+
+
+
+
+
+    
+}
+
+
+.texto-sobre-tech{
+
+    grid-row: 2/3; /* cambiando la posicion del elemento de la fila 2 a la 3 */
+    color: var(--blanco);
+    display: flex;
+    flex-direction: column; /* alineando verticalemnte*/
+    justify-content: space-between;
+    padding-bottom: var(--separacion);
+
+}
+
+
+
+
+
+@media (min-width: 768px){
+    .texto-sobre-tech{
+
+        padding-bottom: 0;
+    }
+
+
+}
+
+
+.texto-sobre-tech h2{
+
+    font-size: 4rem;
+
+
+}
+.texto-sobre-tech p{
+
+    font-size: 2rem;
+    line-height: 2;
+
+
+}
+
+
+/* Modelos*/
+
+.modelos{
+
+    padding: var(--separacion) 0; /* 5 rem abajo y ariiba y 0 a la izq*/
+
+}
+
+.header-modelos{
+
+    font-size: 6rem;
+    margin-bottom: var(--separacion);
+
+}
+
+.listado-modelos{
+
+    display: flex;
+    flex-direction: column-reverse;
+
+}
+
+@media (min-width:992px){ /* media queries para tamaño desktop*/
+
+    .listado-modelos{
+
+        display:grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,20rem);
+
+        gap: 4rem;
+
+    }
+     
+
+
+
+
+}
+
+
+
+.modelo{
+
+    background-color:var(--grisClaro) ;
+    margin-bottom: 2rem;
+    padding-left: 4rem;
+    color: var(--primario);
+    border-radius: 2rem;
+    min-height: 20rem;
+    display:flex;
+    flex-direction:column;  /* alineando verticalmente , cuando es colum justify content se utiliza para 
+
+    para alinear los elementos , cuando es row , se alinea horizontalmente
+    
+    */
+    justify-content: center; 
+
+
+    /*background-position: 10px 100px; /* los 10 px son de izq a derecha para posicionar el elemento 
+    
+    y los 100 son de arriba hacia abajo */
+
+
+    background-position: 90% center; /* le indicamos que de izq a derecha son 90% y arriba y abajo 90%*/
+
+    background-size: 15rem;
+
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+
+    transition-property: transform background-size; /* especificandole que es al transform que le queremos dar transition y al background size*/
+    transition-duration: .3s; /* especificando la duracion */
+
+
+}
+
+.modelo:hover{ /* cuando le pase el mouse por encima */
+
+    transform:scale(1.1); /* dandole el valor solamente de 1 , no pasa nada , ´pero si le colocamos
+    
+        el siguiente. que es 1.1 le  estamos diciendo que crezca el 10 %  
+    */
+
+   /* transform:scale(1.1) rotate(8deg) /* podemos tener varias propiedades en una sola linea*/
+
+    background-size: 30rem;
+
+
+
+}
+
+
+
+
+
+
+
+@media(min-width:992px){
+
+
+     .modelo{
+
+        margin-bottom: 0;
+
+     }
+
+}
+
+
+
+
+.modelo h3{
+
+    font-size:2.5rem;
+
+}
+
+.modelo .precio{
+
+    font-size:4rem;
+    font-weight:900;
+    line-height:0;
+
+}
+
+.modelo-Z .precio{
+
+    font-size:6rem;
+
+}
+
+
+
+.modelo:first-of-type{ /* seleccionando el primer elemento*/
+    background-color:red ;
+    margin-bottom: 0 ;
+}
+
+
+.modelo-x{
+
+    background-image:url('../img/modelo-x.svg');
+    background-repeat: no-repeat;
+
+
+}
+
+
+.modelo-y{
+
+
+    background-image:url('../img/modelo-y.svg');
+    background-repeat: no-repeat;
+}
+
+
+
+.modelo-Z{
+
+    background-image:url('../img/modelo-z.svg');
+    background-repeat: no-repeat;
+    background-color:var(--primario);
+    color:var(--blanco);
+
+}
+
+@media(min-width:992px){
+
+    .modelo-Z{
+
+        grid-column: 2/3; /* cambiando el orden de la columnas o posicion */
+        grid-row: 1/3; /* cambiando el orden de las filas del 1 al 3*/
+        background-size: 25rem;
+
+
+    }
+
+    .modelo-Z h3{
+
+        font-size:3rem;
+
+
+
+
+    }
+
+
+
+}
+
+
+/*newsletter*/
+
+.newsletter{
+
+
+background-image: linear-gradient(to bottom, transparent 50%, var(--blanco) 0%), url('../img/newsletter.jpg');
+
+background-position: top center;
+background-repeat: no-repeat;
+background-size: 100%,70rem; /* 100 de ancho y 70 de alto*/
+
+
+}
+
+@media (min-width:768px){
+
+
+    .newsletter{
+
+
+
+        background-image: linear-gradient(to right, transparent 50%, var(--blanco) 0%), url('../img/newsletter.jpg');
+        background-position: center , -21rem, -10rem;
+        background-size: 100%,100rem;
+        padding: 10rem 0;
+
+
+        }
+}
+
+
+
+@media (min-width:2200px){ /* resolucion para pantallas super grandes*/
+
+    .newsletter{
+
+        background-size: 100%, 200rem;
+        background-position:center, 0%, -30rem ;
+
+
+
+    }
+
+
+
+}
+
+
+.contenido-newsletter{
+
+
+    display: grid;
+    grid-template-rows: repeat(2, 30rem);
+    gap: var(--separacion);
+
+}
+
+@media (min-width:768px){
+
+    .contenido-newsletter{
+
+        grid-template-rows: unset; /* quitando el template row o filas en tamaño de escritorio */
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+}
+.texto-newsletter{
+
+grid-row: 2/3; /* cambiando la posicion del parrafo de la posicion 2 a la 3 */
+
+}
+
+@media(min-width:768px){
+
+    .texto-newsletter{
+
+
+        grid-row: unset; /* elimiando las filas para colocarla en columna con la propiedad de abajo */
+        grid-column: 2/3; /* cmabiando la posicion del la columna 2 a la 3 */
+
+
+
+     
+        }
+
+
+}
+
+
+
+
+
+.formulario input[type="text"]{
+
+    width: 100%;
+    padding: 1rem;
+
+
+
+
+}
+
+
+.formulario input[type="submit"]{
+
+    width: 100%;
+    padding: 2rem;
+    background-color: var(--primario);
+    color: var(--blanco);
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 900; /* ancho de la letra*/
+    border: none;
+
+}
+
+
+.footer p{
+
+     text-align: center;
+
+     font-family: var(--fuenteSecundaria);
+     text-transform: uppercase;
+
+     font-size: 2rem;
+     padding: 5rem 0 ;
+
+     color: var(--primario);
+
+}
